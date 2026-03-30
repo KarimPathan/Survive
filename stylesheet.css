@@ -1,0 +1,510 @@
+@font-face {
+    font-family: 'StarCrush';
+    src: url('media/fonts/Star_Crush.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'HelvetiPixel';
+    src: url('media/fonts/PublicPixel-rv0pA.ttf');
+}
+
+@font-face {
+    font-family: 'Doctorglitch';
+    src: url('media/fonts/BeautyGlitchDemoRegular-1GK3M.otf.otf');
+}
+
+@font-face {
+    font-family: 'ArialRounded' ;
+    src: url(media/fonts/arialroundedmtbold.ttf);
+}
+
+
+.main {
+    height: 800%;
+    width: 100%;
+    position: absolute;
+
+}
+
+.blackglitch{
+    display: grid;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    left: 0%;
+    top: 96%;
+}
+
+.blackglitch img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: 'StarCrush', 'HelvetiPixel';
+    height: 800vh;
+    max-height: 800vh;
+}
+
+.black{
+    position: absolute;
+    height: 15%;
+    width: 100%;
+    background-color: black;
+    overflow: hidden;
+
+}
+
+.verse1{
+    position: absolute;
+    top:15%;
+    right: 6%;
+    width: 60%;
+    z-index: 2;
+    
+
+}
+
+.verse3{
+    position: absolute;
+        top:480%;
+    right: 6%;
+    width: 80%;
+        z-index: 0;
+    
+
+}
+
+.poemtext3{
+            font-size: 500%;
+    min-height: 1em;
+        color: white;
+    line-height: 1;
+    text-align: center;
+    padding: 4%;
+    animation: verse3-glitch 1200ms steps(2, end) infinite;
+    animation-delay: calc(var(--index, 0) * 100ms);
+}
+
+
+
+.glitch-letter {
+    display: inline-block;
+    white-space: pre;
+}
+
+.verse1:hover .glitch-letter {
+    animation: verse1-letter-glitch 600ms steps(1, end) infinite;
+    animation-delay: calc(var(--phase, 0) * 28ms);
+}
+.verse2 {
+    top: 20%;
+    left: 5%;
+    width: 60%;
+    height: 10%;
+    position: absolute;
+}
+
+.poemtext1{
+    padding: 1%;
+    font-size: 200%;
+    min-height: 1em;
+    color: white;
+}
+
+.poemtext1.is-hidden {
+    opacity: 0;
+}
+
+.poemtext1.is-visible {
+    opacity: 1;
+    transition: opacity 0.25s linear;
+}
+
+.poemtext1:nth-child(2) {
+    padding-left: 20%;;
+}
+.poemtext1:nth-child(5) {
+    padding-left: 20%;;
+}
+
+.poemtext1:nth-child(7) {
+    padding-top: 10%;;
+}
+.poemtext2 {
+    font-size: 250%;
+    min-height: 1em;
+    color: black;
+    display: grid;
+    line-height: 1;
+    padding: 4%;
+
+}
+
+.poemtext2 .text-default,
+.poemtext2 .text-hover {
+    display: block;
+    grid-area: 1 / 1;
+    width: 100%;
+    transition: opacity 0.2s none, max-height 0.2s none;
+    transition-delay: 0s, 0s;
+}
+
+.poemtext2 .text-default {
+    opacity: 1;
+}
+
+.poemtext2 .text-hover {
+    text-align: right;
+    opacity: 0;
+}
+
+.poemtext2:hover .text-default {
+    opacity: 0;
+    transition-delay: 0s, 0s;
+}
+
+.poemtext2:hover .text-hover {
+    opacity: 1;
+    transition-delay: 0.2s, 0.2s;
+}
+
+.glitch {
+    position: absolute;
+    top: var(--glitch-top, auto);
+    right: var(--glitch-right, 0%);
+    left: var(--glitch-left, auto);
+    width: var(--glitch-width, var(--glitch-size, 30%));
+    height: var(--glitch-height, var(--glitch-size, 30%));
+    transform: rotate(var(--glitch-rotate, 0deg)) scaleX(var(--glitch-scale-x, 1)) scaleY(var(--glitch-scale-y, 1)) scale(var(--glitch-scale, 1));
+    transform-origin: center;
+    mix-blend-mode: difference;
+    z-index: var(--glitch-z, 20);
+}
+
+.glitch img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    /*transform: scaleY(0.5);*/
+}
+
+.ForThoseOfUs {
+    position: absolute;
+
+    left: 0%;
+    top: 13%;
+    width: 25%;
+    height: 4.25%;
+    padding: 0;
+    background-color: blue;
+    color: white;
+    font-size: 10rem;
+    overflow: scroll;
+}
+
+.ForAllOfUS {
+    position: absolute;
+    font-family:'ArialRounded';
+    font-size: 10rem;
+    left: 50%;
+    width: max-content;
+    height: 5%;
+    padding: 0;
+    white-space: nowrap;
+    color: red;
+top: 400%;
+mix-blend-mode: difference;
+    animation: forall-slide-horizontal 8s linear infinite alternate;
+    will-change: transform;
+
+}
+
+.ForAllOfUS + .ForAllOfUS {
+    top: 402%;
+    border-radius: 10px;
+    color: blue;
+    mix-blend-mode: difference;
+    animation-direction: alternate-reverse;
+
+}
+
+@keyframes forall-slide-horizontal {
+    from {
+        transform: translateX(calc(-50% - 45vw));
+    }
+    to {
+        transform: translateX(calc(-50% + 45vw));
+    }
+}
+
+
+.allspeak {
+    position: absolute;
+    top: 235%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.allspeak * {
+    cursor: pointer;
+}
+.speakpink {
+   position: absolute;
+   left: 10%;
+   width: 100%;
+   height: 100%;
+   mix-blend-mode: difference;
+
+}
+.speakpink img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    animation: speakpink-jump 820ms steps(1, end) infinite;
+}
+.speakgreen {
+   position: absolute;
+   left: -4%;
+   width: 100%;
+   height: 100%;
+   mix-blend-mode: difference;
+
+}
+.speakgreen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: speakgreen-a-jump 500ms steps(1, end) infinite;
+}
+.speakgreen + .speakgreen {
+    transform: translateX(3%);
+    top: 4%;
+}
+ .speakgreen + .speakgreen img {
+     animation: speakgreen-b-jump 700ms steps(1, end) infinite;
+ }
+
+.allspeak.is-stopped .speakpink,
+.allspeak.is-stopped .speakgreen {
+    top: 0;
+}
+
+.allspeak.is-stopped .speakgreen + .speakgreen {
+    transform: translateX(3%);
+    top: 4%;
+}
+
+.allspeak.is-stopped .speakpink img,
+.allspeak.is-stopped .speakgreen img,
+.allspeak.is-stopped .speakgreen + .speakgreen img {
+    animation-play-state: paused;
+}
+
+ .hugepopup {
+    position: absolute;
+    top: 650%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+}
+.hugepopup img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+ .glitch2 {
+    position: absolute;
+    top: var(--glitch2-top, 600%);
+    left: var(--glitch2-left, 0%);
+     transform: rotate(var(--glitch2-rotate, 0deg)) scale(var(--glitch2-scale, 2));
+    width: 100%;
+    height: 20rem;
+    z-index: 40;
+    mix-blend-mode: difference;}
+.glitch2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes speakpink-jump {
+    0%, 44% {
+        transform: translate(0, 0);
+    }
+    45%, 62% {
+        transform: translate(-4%, 2%);
+    }
+    63%, 100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes speakgreen-a-jump {
+    0%, 34% {
+        transform: translate(0, 0);
+    }
+    35%, 52% {
+        transform: translate(5%, -2%);
+    }
+    53%, 100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes speakgreen-b-jump {
+    0%, 24% {
+        transform: translate(0, 0);
+    }
+    25%, 32% {
+        transform: translate(-7%, 3%);
+    }
+    33%, 66% {
+        transform: translate(0, 0);
+    }
+    67%, 78% {
+        transform: translate(3%, -2%);
+    }
+    79%, 100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes verse1-letter-glitch {
+    0%, 38%, 100% {
+        transform: translate(0, 0);
+        text-shadow: none;
+        opacity: 1;
+    }
+    39% {
+        transform: translate(
+            calc(var(--dir-x, 1) * 2px),
+            calc(var(--dir-y, 1) * -2px)
+        );
+        text-shadow: -1px 0 red, 1px 0 cyan;
+        opacity: 0.9;
+    }
+    54% {
+        transform: translate(
+            calc(var(--dir-x, 1) * -3px),
+            calc(var(--dir-y, 1) * 1px)
+        );
+        text-shadow: 1px 0 red, -1px 0 blue;
+        opacity: 0.82;
+    }
+    72% {
+        transform: translate(
+            calc(var(--dir-y, 1) * 2px),
+            calc(var(--dir-x, 1) * -2px)
+        );
+        text-shadow: -1px 0 blue, 1px 0 red;
+        opacity: 0.88;
+    }
+}
+
+@keyframes verse3-glitch {
+    0%, 60%, 100% {
+        transform: translate(0, 0);
+        text-shadow: none;
+        opacity: 1;
+    }
+    20% {
+        transform: translate(-2px, 1px);
+        text-shadow: 1px 0 red;
+        opacity: 0.8;
+    }
+    40% {
+        transform: translate(2px, -1px);
+        text-shadow: -1px 0 cyan;
+        opacity: 0.8;
+    }
+}
+
+.popup {
+   position: absolute;
+   top: var(--popup-top, 300%);
+  left: var(--popup-left, 50%);
+  width: var(--popup-width, 37%);
+  height: var(--popup-height, 37%);
+    z-index: var(--popup-z, 1);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(
+            var(--popup-shift-x, 0px),
+            var(--popup-shift-y, 0px));
+    transition: opacity 0.35s none, transform var(--popup-motion-duration, 500ms) none;
+    will-change: transform;
+    mix-blend-mode: normal;
+}
+
+.popup.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.popup.is-dismissed {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.popup.is-visible.is-phased-out {
+    opacity: 0;
+}
+
+.popup img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+}
+
+.tinypixel{
+    position: absolute;
+    top: 350%;
+    left: 80%;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: difference;
+}
+
+.textpixel {
+    position: absolute;
+    top: 200%;
+    left: 5%;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: difference;
+}
+
+.smallpixel {
+    position: absolute;
+    top: 315%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: difference;
+}
